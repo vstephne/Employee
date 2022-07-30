@@ -19,6 +19,7 @@ public class UserProfile {
 	@Column(name = "id")
 	private int id;
 
+	
 	@NotEmpty
 	@Size(min=10,max=15,message="password should be minimum 10 charecters and maximum 15 charecters")
 	@Column(name = "password")
