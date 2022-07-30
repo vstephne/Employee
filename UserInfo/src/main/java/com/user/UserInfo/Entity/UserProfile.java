@@ -5,39 +5,30 @@ import java.util.Date;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import javax.validation.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "USER_PROFILE_INFO")
 public class UserProfile {
+
+	@NotEmpty
 	@Id
 	@Column(name = "id")
 	private int id;
-	
-	@Column(name="password")
+
+	@NotEmpty
+	@Size(min=10,max=15,message="password should be minimum 10 charecters and maximum 15 charecters")
+	@Column(name = "password")
 	private String password;
-	
-	public int getId() {
-		return id;
-	}
 
-	@JsonProperty("id")
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	@JsonProperty("password")
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
+	@NotEmpty
 	@Column(name = "username")
 	private String userName;
 
+	@NotEmpty
 	@Column(name = "firstName")
 	private String firstName;
 
@@ -50,12 +41,16 @@ public class UserProfile {
 	@Column(name = "dateOfBirth")
 	private Date dateOfBirth;
 
+	// email of the user
+	@Email
 	@Column(name = "email")
 	private String email;
 
 	@Column(name = "gender")
 	private String gender;
 
+	@NotEmpty
+	@Size(min = 10, max = 10, message = "Phone number must be 10 digits")
 	@Column(name = "phone")
 	private String phone;
 
@@ -84,6 +79,15 @@ public class UserProfile {
 		return lastName;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	@JsonProperty("id")
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@JsonProperty("lastName")
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
@@ -92,7 +96,7 @@ public class UserProfile {
 	public int getAnnualSalary() {
 		return annualSalary;
 	}
-    
+
 	@JsonProperty("annualSalary")
 	public void setAnnualSalary(int annualSalary) {
 		this.annualSalary = annualSalary;
@@ -143,5 +147,13 @@ public class UserProfile {
 		this.userStatus = userStatus;
 	}
 
-	
+	public String getPassword() {
+		return password;
+	}
+
+	@JsonProperty("password")
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 }
