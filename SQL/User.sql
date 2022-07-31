@@ -5,8 +5,7 @@
 
  CREATE TABLE USER_ADDRESS(addrName varchar(30) ,username varchar(30) ,addrLn1 varchar(50),city varchar(30),stateCode varchar(10),postalCode varchar(10),country varchar(10),PRIMARY KEY(addrName,username),FOREIGN KEY (username) REFERENCES USER_PROFILE_INFO(username));
 
-DROP TABLE USER_ADDRESS;
-DROP TABLE USER_PROFILE_INFO;
+
 
 SELECT * FROM USER_PROFILE_INFO;
 SELECT * FROM USER_ADDRESS ;
