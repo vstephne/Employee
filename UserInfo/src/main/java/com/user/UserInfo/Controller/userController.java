@@ -2,9 +2,12 @@ package com.user.UserInfo.Controller;
 
 import java.util.*;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.user.UserInfo.Entity.Address;
 import com.user.UserInfo.Entity.UserProfile;
 import com.user.UserInfo.Service.*;
 
@@ -15,14 +18,16 @@ public class userController {
 	  @Autowired
 	  private userService userService;
 	  
+	  @Autowired
+	  private addressService addressService;
 
 	  @PostMapping
-	  public void insertUser(@RequestBody UserProfile user){
+	  public void insertUser(@Valid @RequestBody UserProfile user){
 		  userService.insertUser(user);
 	  }
 	  	  
 	  @PostMapping(value={"/createWithArray","/createWithList"})
-	  public void insertUser(@RequestBody List<UserProfile> user){
+	  public void insertUser(@Valid @RequestBody List<UserProfile> user){
 		  userService.insertArrayUser(user);
 	  }
 	  
@@ -49,6 +54,21 @@ public class userController {
 			  e.printStackTrace();
 			  
 		  }
+	  }
+	  
+	  @PostMapping(value={"/address"})
+	  public void insertAddress(@RequestBody Address addr){
+		  addressService.insertAddress(addr);
+	  }
+	  	  
+	  @PostMapping(value={"/multipleAddress"})
+	  public void insertMultipleAddress(@RequestBody List<Address> addr){
+		  addressService.insertMultipleAddress(addr);
+	  }
+	  
+	  @GetMapping(value={"/getAddress"})
+	  public List<Address> getAddress(@RequestParam("username") String username){
+		 return addressService.getAddress(username);
 	  }
 	  
 }
