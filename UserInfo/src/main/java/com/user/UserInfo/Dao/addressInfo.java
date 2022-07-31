@@ -1,3 +1,6 @@
+/*
+ * This file has the functionalities related to Address Table
+ */
 package com.user.UserInfo.Dao;
 
 import java.sql.ResultSet;

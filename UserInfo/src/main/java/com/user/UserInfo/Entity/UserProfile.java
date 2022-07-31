@@ -1,3 +1,6 @@
+/*
+ * This file has the propeties and getter-seetters related to User Table
+ */
 package com.user.UserInfo.Entity;
 
 import java.util.Date;

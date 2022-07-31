@@ -1,3 +1,6 @@
+/*
+ * This file has all the service calls that is operation call to Database layer for User Table
+ */
 package com.user.UserInfo.Service;
 
 import java.util.Collection;

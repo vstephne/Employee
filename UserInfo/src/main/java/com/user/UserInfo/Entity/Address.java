@@ -1,3 +1,6 @@
+/*
+ * This file has the propeties and getter-seetters related to Address Table
+ */
 package com.user.UserInfo.Entity;
 
 import javax.persistence.Column;
