@@ -9,6 +9,8 @@ ASSUMPTION:
 1.	Assuming username for every user is unique for a user
 2.	Assuming minimum annualSalary is 12000$ and set it as default in case not entered
 3.	A user can have different address but their names must be unique for a given user
+4.	Assuming userStatus is userType and it starts from 1
+5.	Password length must be between 10 to 15 charecters
 
 SYSTEM DESIGN:
 
@@ -32,7 +34,6 @@ STEPS to run the application:
 1.	Install MYSQL in the system 
 2.	Open the .sql file attached in email or found on repository under SQL folder
 3.	Clone the repository
-4.	Run it as a springboot application
-5.	Run various API dfound on post man which can be accessed by above link
-
-
+4.	Go to application.properties file under src/main/resources and add ur path to DB, username and password for Database.
+5.	Run it as a springboot application
+6.	Run various API dfound on post man which can be accessed by above link
