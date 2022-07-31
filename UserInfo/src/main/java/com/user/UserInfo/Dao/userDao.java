@@ -12,4 +12,5 @@ public interface userDao  {
 	 void insertArrayUser(List<UserProfile> user);
 	 void updateUser(String paramUserName,UserProfile user);
 	 void deleteUser(String paramUserName);
+	 List<UserProfile> getUserByDetails(String name, int userStatus);
 }

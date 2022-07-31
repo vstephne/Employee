@@ -73,6 +73,37 @@ public class userInfo  implements userDao{
 		  });
 	 	 return usersdata;
 	}
+	
+	@Override
+	public List<UserProfile> getUserByDetails(String name, int userStatus){
+		 String sql = "SELECT * FROM USER_PROFILE_INFO  ";
+		
+		if(!name.isEmpty() && userStatus!=0) {
+			sql = sql + "where firstName='"+ name +"'and userStatus='" + userStatus +"';";
+		}else if(name.isEmpty() && userStatus!=0) {
+			sql = sql + "where " +" userStatus='" + userStatus +"';";
+		}else if(name.isEmpty() && userStatus==0) {
+			sql = sql + "where " +" firstName='" + name +"';";
+		}
+		  List<UserProfile> usersdata= jdbcTemplate.query(sql,  new RowMapper<UserProfile>() {
+			  public UserProfile mapRow(ResultSet resultSet, int i) throws SQLException {
+				  UserProfile user = new UserProfile();
+				  user.setId(resultSet.getInt("id"));
+				  user.setFirstName(resultSet.getString("firstName"));
+				  user.setLastName(resultSet.getString("lastName"));
+				  user.setUserName(resultSet.getString("username"));
+				  user.setPassword(resultSet.getString("password"));
+				  user.setEmail(resultSet.getString("email"));
+				  user.setPhone(resultSet.getString("phone"));
+				  user.setGender(resultSet.getString("gender"));
+				  user.setAnnualSalary(resultSet.getInt("annualSalary"));
+				  user.setDateOfBirth(resultSet.getDate("dateOfBirth"));
+				  user.setUserStatus(resultSet.getInt("userStatus"));
+				  return user;
+			  }
+		  });
+	 	 return usersdata;
+	}
 
 	@Override
 	public void insertUser(UserProfile user) {

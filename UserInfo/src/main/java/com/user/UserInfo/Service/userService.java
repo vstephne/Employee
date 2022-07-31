@@ -29,6 +29,10 @@ public class userService {
 		  return this.userDao.getAllUsers();
 	  }
 	  
+	  public List<UserProfile> getUserByDetails(String name, int userStatus){
+		  return this.userDao.getUserByDetails( name,  userStatus);
+	  }
+	  
 	  public void updateUser(String paramUserName,UserProfile user) {
 		  this.userDao.updateUser(paramUserName,user);
 	  }
