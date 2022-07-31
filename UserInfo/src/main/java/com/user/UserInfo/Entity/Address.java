@@ -18,7 +18,7 @@ public class Address {
 	@NotEmpty
 	private String addrName;
 	
-	@Id
+	
 	@Column(name = "username")
 	@NotEmpty
 	private String username;

@@ -4,32 +4,35 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "USER_PROFILE_INFO")
 public class UserProfile {
 
-	@NotEmpty
+	
 	@Id
 	@Column(name = "id")
 	private int id;
 
 	
-	@NotEmpty
+	
 	@Size(min=10,max=15,message="password should be minimum 10 charecters and maximum 15 charecters")
 	@Column(name = "password")
 	private String password;
 
-	@NotEmpty
+	
 	@Column(name = "username")
 	private String userName;
 
-	@NotEmpty
+	
 	@Column(name = "firstName")
 	private String firstName;
 
@@ -39,6 +42,7 @@ public class UserProfile {
 	@Column(name = "annualSalary")
 	private int annualSalary;
 
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "dateOfBirth")
 	private Date dateOfBirth;
 
@@ -50,7 +54,6 @@ public class UserProfile {
 	@Column(name = "gender")
 	private String gender;
 
-	@NotEmpty
 	@Size(min = 10, max = 10, message = "Phone number must be 10 digits")
 	@Column(name = "phone")
 	private String phone;

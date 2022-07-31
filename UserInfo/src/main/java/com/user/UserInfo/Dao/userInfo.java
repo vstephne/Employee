@@ -2,6 +2,7 @@ package com.user.UserInfo.Dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -77,7 +78,7 @@ public class userInfo  implements userDao{
 	public void insertUser(UserProfile user) {
 		// TODO Auto-generated method stub
 		
-		final String sql = "INSERT INTO  USER_PROFILE_INFO(username,firstName,lastName,id,password,email,phone,userStatus) values(?,?,?,?,?,?,?,?)";
+		final String sql = "INSERT INTO  USER_PROFILE_INFO(username,firstName,lastName,id,password,email,phone,userStatus,dateOfBirth) values(?,?,?,?,?,?,?,?,?)";
 		
 		final String userName=user.getUserName();
 		final String firstName= user.getFirstName();
@@ -87,8 +88,9 @@ public class userInfo  implements userDao{
 		final String email = user.getEmail();
 		final String phone = user.getPhone();
 		final int userStatus = user.getUserStatus();
+		final Date dateofbirth = user.getDateOfBirth();
 		  
-		 jdbcTemplate.update(sql,new Object[] {userName,firstName,lastName,id,password1,email,phone,userStatus} );
+		 jdbcTemplate.update(sql,new Object[] {userName,firstName,lastName,id,password1,email,phone,userStatus,dateofbirth} );
 		
 	}
 	
