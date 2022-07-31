@@ -14,22 +14,22 @@ import javax.validation.constraints.Size;
 @Table(name = "USER_PROFILE_INFO")
 public class UserProfile {
 
-	@NotEmpty
+	
 	@Id
 	@Column(name = "id")
 	private int id;
 
 	
-	@NotEmpty
+	
 	@Size(min=10,max=15,message="password should be minimum 10 charecters and maximum 15 charecters")
 	@Column(name = "password")
 	private String password;
 
-	@NotEmpty
+	
 	@Column(name = "username")
 	private String userName;
 
-	@NotEmpty
+	
 	@Column(name = "firstName")
 	private String firstName;
 
